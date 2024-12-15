@@ -1,0 +1,89 @@
+# Unity generated files
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+
+# User-specific files
+UserSettings/
+
+# Crash reports
+*.pidb
+*.crash
+*.dmp
+
+# Auto-generated Visual Studio/MonoDevelop files
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.tmp
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+
+# Rider files
+.idea/
+*.sln.iml
+
+# OS generated files/macOS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+._.Trashes
+
+# Windows
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.nfs*
+
+# Unity Asset Store tools
+Assets/AssetStoreTools*
+
+# Log files
+*.log
+*.stacktrace
+
+# Android/iOS build
+*.apk
+*.aab
+*.obb
+*.ipa
+
+# VS Code files
+.vscode/
+
+# Gradle files
+.gradle/
+*.gradle
+!gradle-wrapper.properties
+*.jar
+*.war
+*.ear
+
+# Firebase
+google-services.json
+GoogleService-Info.plist
+
+# Additional build files
+*.ccp4
+*.ccs
+*.csp
+*.rsp
+
+# Temporary backups
+*.bak
+*.bak2
+*.bak3
