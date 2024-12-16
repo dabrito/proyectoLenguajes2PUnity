@@ -64,6 +64,7 @@ Assets/AssetStoreTools*
 
 # VS Code files
 .vscode/
+.vs/
 
 # Gradle files
 .gradle/
