@@ -26,6 +26,17 @@ public class PlayerController : MonoBehaviour
 
   void Update()
   {
+    float horizontalMovement = 0f;
+
+    if (Input.GetKey(KeyCode.A))
+    {
+        horizontalMovement = -playerSpeed;
+    }
+    else if (Input.GetKey(KeyCode.D))
+    {
+        horizontalMovement = playerSpeed;
+    }
+
     if (Input.GetKeyDown(KeyCode.Space))
     {
       myrigidbody2D.linearVelocity = new Vector2(myrigidbody2D.linearVelocity.x, playerJumpForce);
