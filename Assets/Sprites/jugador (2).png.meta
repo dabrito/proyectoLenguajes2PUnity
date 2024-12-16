@@ -155,10 +155,10 @@ TextureImporter:
       name: jugador (2)_0
       rect:
         serializedVersion: 2
-        x: 21
-        y: 299
-        width: 57
-        height: 151
+        x: 22
+        y: 300
+        width: 55
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -177,10 +177,10 @@ TextureImporter:
       name: jugador (2)_1
       rect:
         serializedVersion: 2
-        x: 31
-        y: 148
-        width: 57
-        height: 152
+        x: 122
+        y: 300
+        width: 61
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -199,10 +199,10 @@ TextureImporter:
       name: jugador (2)_2
       rect:
         serializedVersion: 2
-        x: 121
-        y: 299
-        width: 63
-        height: 151
+        x: 209
+        y: 300
+        width: 103
+        height: 148
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -221,10 +221,10 @@ TextureImporter:
       name: jugador (2)_3
       rect:
         serializedVersion: 2
-        x: 121
-        y: 148
-        width: 64
-        height: 152
+        x: 340
+        y: 300
+        width: 55
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -243,9 +243,9 @@ TextureImporter:
       name: jugador (2)_4
       rect:
         serializedVersion: 2
-        x: 208
-        y: 299
-        width: 105
+        x: 433
+        y: 300
+        width: 62
         height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -265,10 +265,10 @@ TextureImporter:
       name: jugador (2)_5
       rect:
         serializedVersion: 2
-        x: 339
-        y: 299
-        width: 57
-        height: 151
+        x: 520
+        y: 300
+        width: 103
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -287,10 +287,10 @@ TextureImporter:
       name: jugador (2)_6
       rect:
         serializedVersion: 2
-        x: 341
-        y: 148
-        width: 57
-        height: 152
+        x: 32
+        y: 149
+        width: 55
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -309,10 +309,10 @@ TextureImporter:
       name: jugador (2)_7
       rect:
         serializedVersion: 2
-        x: 432
-        y: 299
-        width: 64
-        height: 151
+        x: 122
+        y: 149
+        width: 62
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -331,10 +331,10 @@ TextureImporter:
       name: jugador (2)_8
       rect:
         serializedVersion: 2
-        x: 434
-        y: 148
-        width: 65
-        height: 152
+        x: 209
+        y: 149
+        width: 103
+        height: 148
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -353,10 +353,10 @@ TextureImporter:
       name: jugador (2)_9
       rect:
         serializedVersion: 2
-        x: 519
-        y: 299
-        width: 105
-        height: 151
+        x: 342
+        y: 149
+        width: 55
+        height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -375,9 +375,9 @@ TextureImporter:
       name: jugador (2)_10
       rect:
         serializedVersion: 2
-        x: 208
-        y: 148
-        width: 105
+        x: 435
+        y: 149
+        width: 63
         height: 150
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -397,10 +397,10 @@ TextureImporter:
       name: jugador (2)_11
       rect:
         serializedVersion: 2
-        x: 522
-        y: 148
-        width: 102
-        height: 149
+        x: 523
+        y: 149
+        width: 101
+        height: 147
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -419,10 +419,10 @@ TextureImporter:
       name: jugador (2)_12
       rect:
         serializedVersion: 2
-        x: 31
+        x: 32
         y: 0
-        width: 64
-        height: 147
+        width: 62
+        height: 146
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -441,10 +441,10 @@ TextureImporter:
       name: jugador (2)_13
       rect:
         serializedVersion: 2
-        x: 129
+        x: 130
         y: 0
-        width: 64
-        height: 147
+        width: 62
+        height: 146
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -463,7 +463,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: c11851f696225554492b6068b3ffabec
     internalID: 0
     vertices: []
     indices: 
