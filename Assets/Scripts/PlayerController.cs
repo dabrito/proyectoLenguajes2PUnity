@@ -4,83 +4,110 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-  public float playerJumpForce = 20f;
-  public float playerSpeed = 3f;
-  public Sprite[] walkSprites;
-  public Sprite jumpSprite;
-  private int walkIndex = 0;
+    public float playerJumpForce = 20f;
+    public float playerSpeed = 3f;
+    public Sprite[] walkSprites;
+    public Sprite jumpSprite;
+    private int walkIndex = 0;
 
+    private Rigidbody2D myrigidbody2D;
+    private SpriteRenderer mySpriteRenderer;
+    public GameObject Bullet;
+    public GameManager myGameManager;
 
-  private Rigidbody2D myrigidbody2D;
-  private SpriteRenderer mySpriteRenderer;
-  public GameObject Bullet;
-  public GameManager myGameManager;
+    private Coroutine walkCoroutine; 
 
-  void Start()
-  {
-    myrigidbody2D = GetComponent<Rigidbody2D>();
-    mySpriteRenderer = GetComponent<SpriteRenderer>();
-    StartCoroutine(WalkCoroutine());
-    myGameManager = FindFirstObjectByType<GameManager>();
-  }
-
-  void Update()
-  {
-    float horizontalMovement = 0f;
-
-    if (Input.GetKey(KeyCode.A))
+    void Start()
     {
-        horizontalMovement = -playerSpeed;
-    }
-    else if (Input.GetKey(KeyCode.D))
-    {
-        horizontalMovement = playerSpeed;
+        myrigidbody2D = GetComponent<Rigidbody2D>();
+        mySpriteRenderer = GetComponent<SpriteRenderer>();
+        myGameManager = FindFirstObjectByType<GameManager>();
+        myrigidbody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
+
     }
 
-    if (Input.GetKeyDown(KeyCode.Space))
+    void Update()
     {
-      myrigidbody2D.linearVelocity = new Vector2(myrigidbody2D.linearVelocity.x, playerJumpForce);
+        float horizontalMovement = 0f;
+
+        if (Input.GetKey(KeyCode.A))
+        {
+            horizontalMovement = -playerSpeed;
+            transform.localScale = new Vector3(-1, 1, 1); 
+            StartWalkingAnimation(); 
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            horizontalMovement = playerSpeed;
+            transform.localScale = new Vector3(1, 1, 1); 
+            StartWalkingAnimation(); 
+        }
+        else
+        {
+            StopWalkingAnimation(); 
+        }
+
+        myrigidbody2D.linearVelocity = new Vector2(horizontalMovement, myrigidbody2D.linearVelocity.y);
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            myrigidbody2D.linearVelocity = new Vector2(myrigidbody2D.linearVelocity.x, playerJumpForce);
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Instantiate(Bullet, transform.position, Quaternion.identity);
+        }
     }
 
-    myrigidbody2D.linearVelocity = new Vector2(playerSpeed, myrigidbody2D.linearVelocity.y);
-
-    if (Input.GetKeyDown(KeyCode.E))
+    IEnumerator WalkCoroutine()
     {
-      Instantiate(Bullet, transform.position, Quaternion.identity);
+        while (true)
+        {
+            walkIndex = (walkIndex + 1) % walkSprites.Length;
+            mySpriteRenderer.sprite = walkSprites[walkIndex];
+            yield return new WaitForSeconds(0.1f);
+        }
     }
-  }
 
-  IEnumerator WalkCoroutine()
-  {
-    while (true)
+    void StartWalkingAnimation()
     {
-      walkIndex = (walkIndex + 1) % walkSprites.Length;
-      mySpriteRenderer.sprite = walkSprites[walkIndex];
-      yield return new WaitForSeconds(0.1f);
+        if (walkCoroutine == null)
+        {
+            walkCoroutine = StartCoroutine(WalkCoroutine());
+        }
     }
-  }
 
-  void OnTriggerEnter2D(Collider2D collision)
-  {
-    if (collision.CompareTag("Coiun"))
+    void StopWalkingAnimation()
     {
-      Destroy(collision.gameObject);
-      myGameManager.AddScore();
+        if (walkCoroutine != null)
+        {
+            StopCoroutine(walkCoroutine);
+            walkCoroutine = null;
+            mySpriteRenderer.sprite = walkSprites[0]; 
+        }
     }
-    else if (collision.CompareTag("Enemy"))
-    {
-      Destroy(collision.gameObject);
-      PlayerDeath();
-    }
-    else if (collision.CompareTag("DeathZone"))
-    {
-      PlayerDeath();
-    }
-  }
 
-  void PlayerDeath()
-  {
-    SceneManager.LoadScene("Level2D");
-  }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Coiun"))
+        {
+            Destroy(collision.gameObject);
+            myGameManager.AddScore();
+        }
+        else if (collision.CompareTag("Enemy"))
+        {
+            Destroy(collision.gameObject);
+            PlayerDeath();
+        }
+        else if (collision.CompareTag("DeathZone"))
+        {
+            PlayerDeath();
+        }
+    }
 
+    void PlayerDeath()
+    {
+        SceneManager.LoadScene("Level2D");
+    }
 }
