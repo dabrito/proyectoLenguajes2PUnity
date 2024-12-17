@@ -10,12 +10,10 @@ public class PlayerController : MonoBehaviour
   public Sprite jumpSprite;
   private int walkIndex = 0;
   private bool key = false;
-
   private Rigidbody2D myrigidbody2D;
   private SpriteRenderer mySpriteRenderer;
   public GameObject Bullet;
   public GameManager myGameManager;
-
   private Coroutine walkCoroutine;
 
   void Start()
@@ -24,13 +22,11 @@ public class PlayerController : MonoBehaviour
     mySpriteRenderer = GetComponent<SpriteRenderer>();
     myGameManager = FindFirstObjectByType<GameManager>();
     myrigidbody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
-
   }
 
   void Update()
   {
     float horizontalMovement = 0f;
-
     if (Input.GetKey(KeyCode.A))
     {
       horizontalMovement = -playerSpeed;
@@ -46,15 +42,17 @@ public class PlayerController : MonoBehaviour
     else
     {
       StopWalkingAnimation();
+      myrigidbody2D = GetComponent<Rigidbody2D>();
+      mySpriteRenderer = GetComponent<SpriteRenderer>();
+      myGameManager = FindFirstObjectByType<GameManager>();
+      myrigidbody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
-
     myrigidbody2D.linearVelocity = new Vector2(horizontalMovement, myrigidbody2D.linearVelocity.y);
-
     if (Input.GetKeyDown(KeyCode.Space))
     {
       myrigidbody2D.linearVelocity = new Vector2(myrigidbody2D.linearVelocity.x, playerJumpForce);
+      // mySpriteRenderer.sprite = jumpSprite;
     }
-
     if (Input.GetKeyDown(KeyCode.E))
     {
       Instantiate(Bullet, transform.position, Quaternion.identity);
@@ -106,7 +104,6 @@ public class PlayerController : MonoBehaviour
       Destroy(collision.gameObject);
       key = true;
     }
-
     else if (collision.CompareTag("NLevel") && key)
     {
       SceneManager.LoadScene(3);
@@ -115,14 +112,23 @@ public class PlayerController : MonoBehaviour
     {
       PlayerDeath();
     }
+    else if (collision.CompareTag("FinishLine"))
+    {
+      PlayerWins();
+    }
     else if (collision.CompareTag("endgame"))
     {
       SceneManager.LoadScene("Level 2");
     }
   }
 
+  void PlayerWins()
+  {
+    SceneManager.LoadScene("Final");
+  }
+
   void PlayerDeath()
   {
-    SceneManager.LoadScene("Level2D");
+    SceneManager.LoadScene("Level 3");
   }
 }

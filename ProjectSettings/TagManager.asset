@@ -5,13 +5,18 @@ TagManager:
   serializedVersion: 3
   tags:
   - Bullet
-  - Platform
-  - Enemy
-  - Coiun
   - Key
   - DeathZone
   - NLevel
   - endgame
+  - Coin
+  - Platform
+  - Enemy
+  - Coiun
+  - NextLevel
+  - PreviousLevel
+  - GarbageCollector
+  - FInishLine
   layers:
   - Default
   - TransparentFX
