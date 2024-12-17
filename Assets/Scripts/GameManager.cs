@@ -3,11 +3,25 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    public int score;
-    public Text textScore;
+  public static GameManager instance;
+  public int score;
+  public Text textScore;
 
-    public void AddScore(){
-      score++;
-      textScore.text = score.ToString();
+  private void Awake()
+  {
+    if (instance == null)
+    {
+      instance = this;
+      DontDestroyOnLoad(gameObject);
     }
+    else
+    {
+      Destroy(gameObject);
+    }
+  }
+  public void AddScore()
+  {
+    score++;
+    textScore.text = score.ToString();
+  }
 }
