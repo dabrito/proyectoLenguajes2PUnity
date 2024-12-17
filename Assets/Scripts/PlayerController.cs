@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
         mySpriteRenderer = GetComponent<SpriteRenderer>();
         myGameManager = FindFirstObjectByType<GameManager>();
         myrigidbody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
+        
 
     }
 
@@ -35,6 +36,12 @@ public class PlayerController : MonoBehaviour
             horizontalMovement = -playerSpeed;
             transform.localScale = new Vector3(-1, 1, 1); 
             StartWalkingAnimation(); 
+        }
+        // Salto del jugador
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            myrigidbody2D.linearVelocity = new Vector2(myrigidbody2D.linearVelocity.x, playerJumpForce);
+            mySpriteRenderer.sprite = jumpSprite;
         }
         else if (Input.GetKey(KeyCode.D))
         {
@@ -104,10 +111,20 @@ public class PlayerController : MonoBehaviour
         {
             PlayerDeath();
         }
+        else if (collision.CompareTag("FinishLine")){
+            PlayerWins();
+
+
+        }
+    }
+
+    void PlayerWins(){
+        SceneManager.LoadScene("Final");
+
     }
 
     void PlayerDeath()
     {
-        SceneManager.LoadScene("Level2D");
+        SceneManager.LoadScene("Level 3");
     }
 }
