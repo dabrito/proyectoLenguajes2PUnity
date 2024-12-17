@@ -115,10 +115,14 @@ public class PlayerController : MonoBehaviour
     {
       PlayerDeath();
     }
+    else if (collision.CompareTag("endgame"))
+    {
+      SceneManager.LoadScene("Level 2");
+    }
   }
 
   void PlayerDeath()
   {
-    SceneManager.LoadScene("EndGame");
+    SceneManager.LoadScene("Level2D");
   }
 }

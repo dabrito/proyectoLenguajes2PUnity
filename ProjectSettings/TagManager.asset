@@ -11,6 +11,7 @@ TagManager:
   - Key
   - DeathZone
   - NLevel
+  - endgame
   layers:
   - Default
   - TransparentFX
