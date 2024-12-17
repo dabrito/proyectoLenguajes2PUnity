@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
   public float playerJumpForce = 20f;
   public float playerSpeed = 3f;
   public Sprite[] walkSprites;
-  public Sprite jumpSprite;
+  // public Sprite jumpSprite;
   private int walkIndex = 0;
   private bool key = false;
   private Rigidbody2D myrigidbody2D;
@@ -42,9 +42,6 @@ public class PlayerController : MonoBehaviour
     else
     {
       StopWalkingAnimation();
-      myrigidbody2D = GetComponent<Rigidbody2D>();
-      mySpriteRenderer = GetComponent<SpriteRenderer>();
-      myGameManager = FindFirstObjectByType<GameManager>();
       myrigidbody2D.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
     myrigidbody2D.linearVelocity = new Vector2(horizontalMovement, myrigidbody2D.linearVelocity.y);
@@ -94,31 +91,31 @@ public class PlayerController : MonoBehaviour
       Destroy(collision.gameObject);
       myGameManager.AddScore();
     }
-    else if (collision.CompareTag("Enemy"))
+    if (collision.CompareTag("Enemy"))
     {
       Destroy(collision.gameObject);
       PlayerDeath();
     }
-    else if (collision.CompareTag("Key"))
+    if (collision.gameObject.CompareTag("Key"))
     {
       Destroy(collision.gameObject);
       key = true;
     }
-    else if (collision.CompareTag("NLevel") && key)
+    if (collision.gameObject.CompareTag("NLevel") && key)
     {
       SceneManager.LoadScene(3);
     }
-    else if (collision.CompareTag("DeathZone"))
+    if (collision.CompareTag("DeathZone"))
     {
       PlayerDeath();
     }
-    else if (collision.CompareTag("FinishLine"))
+    if (collision.CompareTag("FinishLine"))
     {
       PlayerWins();
     }
-    else if (collision.CompareTag("endgame"))
+    if (collision.CompareTag("endgame"))
     {
-      SceneManager.LoadScene("Level 2");
+      SceneManager.LoadScene(2);
     }
   }
 
@@ -129,6 +126,7 @@ public class PlayerController : MonoBehaviour
 
   void PlayerDeath()
   {
-    SceneManager.LoadScene("Level 3");
+    SceneManager.LoadScene(0);
+    // SceneManager.LoadScene("Level 3");
   }
 }

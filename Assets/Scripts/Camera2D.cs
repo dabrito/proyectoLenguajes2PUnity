@@ -2,14 +2,9 @@ using UnityEngine;
 
 public class Camera2D : MonoBehaviour
 {
-	public Transform targetPlater;
-		void Start()
-		{
-				
-		}
-
+	public Transform targetPlayer;
 		void Update()
 		{
-				transform.position = new Vector3(targetPlater.position.x + 6f, 0, -10);
+				transform.position = new Vector3(targetPlayer.position.x + 6f, 0, -10);
 		}
 }

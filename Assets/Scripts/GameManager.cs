@@ -5,7 +5,6 @@ public class GameManager : MonoBehaviour
 {
   public static GameManager instance;
   public int score;
-  public Text textScore;
 
   private void Awake()
   {
@@ -22,6 +21,5 @@ public class GameManager : MonoBehaviour
   public void AddScore()
   {
     score++;
-    textScore.text = score.ToString();
   }
 }

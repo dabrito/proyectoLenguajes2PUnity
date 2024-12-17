@@ -16,7 +16,7 @@ TagManager:
   - NextLevel
   - PreviousLevel
   - GarbageCollector
-  - FInishLine
+  - FinishLine
   layers:
   - Default
   - TransparentFX
